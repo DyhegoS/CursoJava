@@ -14,7 +14,8 @@ public class Program {
 		System.out.print("Enter account number: ");
 		int accountNumber = sc.nextInt();
 		System.out.print("Enter account Name: ");
-		String accountName = sc.next();
+		sc.nextLine();
+		String accountName = sc.nextLine();
 		System.out.print("Is there  an initial deposit? ");
 		char isDeposit = sc.next().charAt(0);
 		
@@ -28,14 +29,16 @@ public class Program {
 		System.out.println("Account Data: " + account);
 		System.out.println();
 		System.out.print("Enter a deposit value: ");
-		double balance = sc.nextDouble();
-		account.Deposit(balance);
+		double depositValue = sc.nextDouble();
+		account.Deposit(depositValue);
+		
 		System.out.println();
 		System.out.println("Update account data: " + account);
 		System.out.println();
+		
 		System.out.print("Enter a withdraw value: ");
-		balance = sc.nextDouble();
-		account.Withdraw(balance);
+		double withdrawValue = sc.nextDouble();
+		account.Withdraw(withdrawValue);
 		System.out.println();
 		System.out.println("Update account data: " + account);
 
