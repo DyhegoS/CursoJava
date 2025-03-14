@@ -41,8 +41,6 @@ public class Program {
 		account.Withdraw(withdrawValue);
 		System.out.println();
 		System.out.println("Update account data: " + account);
-
-
 		
 		sc.close();
 		
