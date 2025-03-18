@@ -1,5 +1,7 @@
 package application;
 
+
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -14,9 +16,11 @@ public class Program {
 		System.out.print("Quantas pessoas serão digitadas: ");
 		int n = sc.nextInt();
 		sc.nextLine();
-		
+		double sum = 0.0;
+		double percentageLessSixteen = 0.0;
+		int lessSixteen = 0;
 		People[] p = new People[n];
-		
+				
 		for(int i = 0; i < n; i++) {
 			System.out.printf("Dados da %dª Pessoa:%n", i+1);
 			System.out.print("Nome: ");
@@ -27,10 +31,34 @@ public class Program {
 			sc.nextLine();
 			double height = sc.nextDouble();
 			
+			
 			p[i] = new People(name, age, height);
+			
+			sum += p[i].getHeight();
+			
+			if(age < 16) {
+				lessSixteen++;
+			}
+			
+			
 		}
 		
-		System.out.println(p);
+		String[] listLessSixteenNames = new String[p.length];	
+		double avgHeight = sum / n;
+		percentageLessSixteen = ((double)lessSixteen / n) * 100;
+						
+		System.out.println();
+		System.out.printf("Media de altura: %.2f%n", avgHeight);
+		System.out.println("Pessoas com menos de 16 anos: " + percentageLessSixteen + "%");
+		System.out.println();
+		
+		for(int i = 0; i < p.length; i++) {
+			if(p[i].getAge() < 16) {
+				listLessSixteenNames[i] = p[i].getName();
+			}
+		}
+		System.out.println(Arrays.toString(listLessSixteenNames).replace("[", "").replace("]", "").replace(",", "\n"));
+		
 		sc.close();
 
 	}

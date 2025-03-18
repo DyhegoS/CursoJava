@@ -36,15 +36,4 @@ public class People {
 		this.height = height;
 	}
 	
-	public String Result() {
-		return "Nome: " 
-				+ name
-				+ " Idade "
-				+ age
-				+ String.format("Altura: %.2f", height);
-	}
-	
-	
-	
-	
 }
