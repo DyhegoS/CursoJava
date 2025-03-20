@@ -22,8 +22,7 @@ public class Program {
 		System.out.println("Números negativos: ");
 		for(int i = 0; i < n; i++) {
 			if(vect[i] < 0) {
-				int numNegativo = vect[i];
-				System.out.println(numNegativo);
+				System.out.println(vect[i]);
 			}
 		}
 		

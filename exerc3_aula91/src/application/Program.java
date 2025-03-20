@@ -1,7 +1,5 @@
 package application;
 
-
-import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -29,8 +27,7 @@ public class Program {
 			int age = sc.nextInt();
 			System.out.print("Altura: ");
 			sc.nextLine();
-			double height = sc.nextDouble();
-			
+			double height = sc.nextDouble();			
 			
 			p[i] = new People(name, age, height);
 			
@@ -38,9 +35,7 @@ public class Program {
 			
 			if(age < 16) {
 				lessSixteen++;
-			}
-			
-			
+			}						
 		}
 		
 		String[] listLessSixteenNames = new String[p.length];	
@@ -55,10 +50,9 @@ public class Program {
 		for(int i = 0; i < p.length; i++) {
 			if(p[i].getAge() < 16) {
 				listLessSixteenNames[i] = p[i].getName();
+				System.out.println(listLessSixteenNames[i]);
 			}
-		}
-		System.out.println(Arrays.toString(listLessSixteenNames).replace("[", "").replace("]", "").replace(",", "\n"));
-		
+		}	
 		sc.close();
 
 	}
