@@ -1,6 +1,6 @@
 package application;
 
-import java.util.Arrays;
+
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -25,20 +25,17 @@ public class Program {
 			System.out.print("Room: ");
 			int room = sc.nextInt();
 			
-			rooms[i] = new Rooms(room, name, email);
+			rooms[i] = new Rooms(room, name, email);			
 
 		}
-		
-		
-		
+
 		System.out.println("Busy rooms:");
 		for(int i = 0; i < n; i++) {
 			if(rooms[i] != null) {
 				System.out.println(rooms[i].getRoom() + ":" + rooms[i].getName() + ", " + rooms[i].getEmail());
 			}
 		}
-		
-		
+				
 		sc.close();
 
 	}
