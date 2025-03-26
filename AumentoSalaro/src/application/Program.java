@@ -13,15 +13,21 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		List<Integer> list = new ArrayList<>();
+		List<Employee> list = new ArrayList<>();
 		
 		System.out.print("Quantos empregados irá registrar?");
 		int n = sc.nextInt();
 		
 		for(int i = 0; i < n; i++) {
-			System.out.println("Empregado #" + i + 1 + ": ");
+			System.out.println("Empregado #" + (i + 1) + ": ");
 			System.out.print("ID: ");
 			int id = sc.nextInt();
+			while (hasId(list, id)) {
+				System.out.println("ID já em uso, informe outro ID!");
+				System.out.println();
+				System.out.print("ID: ");
+				id = sc.nextInt();
+			}
 			System.out.print("Nome: ");
 			sc.nextLine();
 			String name = sc.nextLine();
@@ -29,17 +35,33 @@ public class Program {
 			double salary = sc.nextDouble();
 			
 			Employee employee = new Employee(id, name, salary);
-			list.add(employee.getId());
+			list.add(employee);
 		}
 		
-		System.out.println("Informe o ID do empregado que terá salário aumentado:");
+		System.out.print("Informe o ID do empregado que terá salário aumentado:");
 		int id = sc.nextInt();
-		System.out.println("Informe a porcentagem de aumento do salário: ");
-		double percentage = sc.nextDouble();
+		Employee checkID = list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+		if(checkID != null) {
+			System.out.print("Informe a porcentagem de aumento do salário: ");
+			double percentage = sc.nextDouble();
+			checkID.increaseSalary(percentage);
+		}else {
+			System.out.println("ID informando não existe!!!");
+		}
 		
+		System.out.println();
+		System.out.println("Lista de empregados:");
+		for(Employee result : list) {
+			System.out.println(result);
+		}
 		
 		sc.close();
 
+	}
+	
+	public static boolean hasId(List<Employee> list, int id) {
+		Employee emp = list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+		return emp != null;
 	}
 
 }
