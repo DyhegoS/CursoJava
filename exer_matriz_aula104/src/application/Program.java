@@ -26,19 +26,19 @@ public class Program {
 			for(int j = 0; j < n; j++) {
 				if(x == mat[i][j]) {
 					System.out.println("Posição: " + i + ", " + j);
-					if(j < n) {
+					if(j < n && j + 1 < n ) {
 						right = mat[i][j + 1];
 						System.out.println("Direita: " + right);
 					}
-					if(j < 0) {
+					if(j > 0) {
 						left = mat[i][j - 1];
 						System.out.println("Esquerda: " + left);
 					}
-					if(i < m) {
+					if(i < m && i + 1 < m) {
 						down = mat[i + 1][j];
 						System.out.println("Baixo:" + down);
 					}
-					if(i < 0) {
+					if(i > 0) {
 						up = mat[i - 1][j];
 						System.out.println("Cima: " + up);
 					}
