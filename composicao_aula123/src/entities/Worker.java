@@ -12,7 +12,7 @@ public class Worker {
 	private Double baseSalary;
 	
 	private Department department;
-	private List<HourContract> contracts = new ArrayList<>();
+	private List<HourContract> contracts = new ArrayList<>();//quando tiver uma composição tem-muitos (Lista), ele não é incluso no construtor. Simplesmente inicia a lista vazia.
 	
 	public Worker() {
 		
@@ -62,7 +62,7 @@ public class Worker {
 	}
 	
 	public void addContract(HourContract contract) {
-		contracts.add(contract);
+		contracts.add(contract);//adiciona na lista o contrato recebido via argumento no metodo
 	}
 	
 	public void removeContract(HourContract contract) {
